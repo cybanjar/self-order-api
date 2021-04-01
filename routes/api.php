@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\DataItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,14 @@ Route::middleware('auth:api')->group(function () {
     Route::put('book/{book}', [BookController::class, 'update']);
     Route::delete('book/{book}', [BookController::class, 'destroy']);
 
-    // Route::get('/foods', [FoodController::class, 'index']);
-    // Route::post('/foods', [FoodController::class, 'store']);
+    Route::get('dataItems', [DataItemController::class, 'index']);
+    Route::post('dataItem', [DataItemController::class, 'store']);
+    Route::get('dataItem/{dataItem}', [DataItemController::class, 'show']);
+    Route::put('dataItem/{dataItem}', [DataItemController::class, 'update']);
+    Route::delete('dataItem/{dataItem}', [DataItemController::class, 'destroy']);
 });
+
+
 
 
 // https://blog.pusher.com/build-rest-api-laravel-api-resources/
