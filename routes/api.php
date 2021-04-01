@@ -23,11 +23,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-Route::middleware('auth:api')->get('books', [BookController::class, 'index']);
-Route::middleware('auth:api')->post('books', [BookController::class, 'store']);
-Route::middleware('auth:api')->get('books/{book}', [BookController::class, 'show']);
-Route::middleware('auth:api')->put('books/{book}', [BookController::class, 'update']);
-Route::middleware('auth:api')->delete('books/{book}', [BookController::class, 'destroy']);
+Route::middleware('auth:api')->group(function () {
+    Route::get('books', [BookController::class, 'index']);
+    Route::post('book', [BookController::class, 'store']);
+    Route::get('books/{book}', [BookController::class, 'show']);
+    Route::put('book/{book}', [BookController::class, 'update']);
+    Route::delete('book/{book}', [BookController::class, 'destroy']);
+
+    // Route::get('/foods', [FoodController::class, 'index']);
+    // Route::post('/foods', [FoodController::class, 'store']);
+});
 
 
 // https://blog.pusher.com/build-rest-api-laravel-api-resources/

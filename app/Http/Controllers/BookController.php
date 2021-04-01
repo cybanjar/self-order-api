@@ -26,12 +26,12 @@ class BookController extends Controller
             'description' => $request->description,
         ]);
 
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Successfully',
-        //     'data' => $book
-        // ]);
-        return new BookResource($book);
+        return response()->json([
+            'success' => true,
+            'message' => 'Successfully',
+            'data' => $book
+        ]);
+        // return new BookResource($book);
     }
 
     public function show(Book $book)
