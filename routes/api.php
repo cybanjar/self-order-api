@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DataItemController;
+use App\Http\Controllers\RestoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Route::middleware('auth:api')->group(function () {
     Route::put('dataItem/{dataItem}', [DataItemController::class, 'update']);
     Route::delete('dataItem/{dataItem}', [DataItemController::class, 'destroy']);
 });
+
+Route::get('resto', [RestoController::class, 'index']);
+Route::post('resto', [RestoController::class, 'store']);
+Route::get('resto/{id}', [RestoController::class, 'show']);
+Route::put('resto/{id}', [RestoController::class, 'update']);
+Route::delete('resto/{id}', [RestoController::class, 'destroy']);
 
 
 
