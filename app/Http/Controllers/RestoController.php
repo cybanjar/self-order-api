@@ -73,7 +73,8 @@ class RestoController extends Controller
 
         $request->validate([
             'user_name' => 'required|min:3',
-            'qty' => 'required|integer'
+            'qty' => 'required|integer',
+            'description' => 'required'
         ]);
 
         $data = $request->all();
