@@ -21,7 +21,9 @@ class RestoController extends Controller
     {
         $validateData = $request->validate([
             'user_name' => 'required|min:3',
-            'qty' => 'required|integer'
+            'qty' => 'required|integer',
+            'category' => 'required',
+            'popular' => 'required|boolean'
         ]);
 
         if(!$validateData) {
@@ -35,6 +37,7 @@ class RestoController extends Controller
             'user_name' => $request->user_name,
             'item_name' => $request->item_name,
             'img' => $request->img,
+            'category' => $request->category,
             'icons' => $request->icons, 
             'description' => $request->description, 
             'total' => $request->total,

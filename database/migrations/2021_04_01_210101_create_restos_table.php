@@ -17,6 +17,7 @@ class CreateRestosTable extends Migration
             $table->increments('id');
             $table->string('user_name')->nullable();
             $table->longText('img')->nullable();
+            $table->enum('category', ['food', 'beverage', 'dessert']); // food, beverage, dessert
             $table->string('icons')->nullable();
             $table->string('item_name');
             $table->text('description')->nullable();

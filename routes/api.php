@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DataItemController;
 use App\Http\Controllers\RestoController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,11 @@ Route::get('resto/{id}', [RestoController::class, 'show']);
 Route::put('resto/{id}', [RestoController::class, 'update']);
 Route::delete('resto/{id}', [RestoController::class, 'destroy']);
 
-
+Route::get('banner', [BannerController::class, 'index']);
+Route::post('banner', [BannerController::class, 'store']);
+Route::get('banner/{id}', [BannerController::class, 'show']);
+Route::put('banner/{id}', [BannerController::class, 'update']);
+Route::delete('banner/{id}', [BannerController::class, 'destroy']);
 
 
 // https://blog.pusher.com/build-rest-api-laravel-api-resources/
