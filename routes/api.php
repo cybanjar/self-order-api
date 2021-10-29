@@ -27,9 +27,9 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('books', [BookController::class, 'index']);
+    Route::get('book', [BookController::class, 'index']);
     Route::post('book', [BookController::class, 'store']);
-    Route::get('books/{book}', [BookController::class, 'show']);
+    Route::get('book/{book}', [BookController::class, 'show']);
     Route::put('book/{book}', [BookController::class, 'update']);
     Route::delete('book/{book}', [BookController::class, 'destroy']);
 
